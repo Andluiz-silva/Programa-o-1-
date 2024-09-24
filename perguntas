@@ -1,0 +1,35 @@
+import random
+
+# Dicionário de perguntas e respostas
+faq = {
+    "Quem é considerado o pai da computação?": "Alan Turing é frequentemente chamado de pai da computação moderna.",
+    "Qual foi o primeiro computador eletrônico?": "O ENIAC, desenvolvido na década de 1940, é considerado o primeiro computador eletrônico de uso geral.",
+    "O que é o algoritmo de Euclides?": "É um método para calcular o máximo divisor comum (MDC) entre dois números inteiros.",
+    "Quando foi criada a primeira linguagem de programação?": "A primeira linguagem de programação, chamada de Assembly, foi criada na década de 1940.",
+    "Quem inventou o primeiro microprocessador?": "O primeiro microprocessador, o Intel 4004, foi lançado em 1971.",
+}
+
+def responder_pergunta(pergunta):
+    return faq.get(pergunta, "Desculpe, não tenho uma resposta para essa pergunta.")
+
+def pergunta_aleatoria():
+    return random.choice(list(faq.keys()))
+
+# Loop principal
+while True:
+    print("Pergunta aleatória: ", pergunta_aleatoria())
+    user_input = input("Você quer saber a resposta? (s/n): ").strip().lower()
+    
+    if user_input == 's':
+        pergunta = pergunta_aleatoria()
+        print(f"Resposta: {responder_pergunta(pergunta)}")
+    
+    elif user_input == 'n':
+        print("Ok! Sinta-se à vontade para perguntar outra coisa.")
+    
+    else:
+        print("Comando inválido. Por favor, responda com 's' ou 'n'.")
+
+    continuar = input("Deseja fazer outra pergunta? (s/n): ").strip().lower()
+    if continuar != 's':
+        break
